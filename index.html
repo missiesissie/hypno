@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<META NAME="ROBOTS" CONTENT="noarchive">
+<meta property="og:title" content="Hypno is best!" />
+<meta property="og:description" content="A simple online tool to switch between two images and create fun and hypnotizing effects. You can use it for very naughty brainwashing, but I don't think my hoster likes it when I give you examples ;)" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://hypno.is-best.net/" />
+<meta property="og:image" content="http://hypno.is-best.net/spiral.jpg" />
+<link rel="icon" href="favicon.ico?v=1" />
+<title>Brainswasher - hypno.is-best.net</title>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script defer src="main.js?v=2"></script>
+<link href="https://fonts.googleapis.com/css?family=Corben:700&display=swap" rel="stylesheet">
+<link href="main.css?v=2" rel="stylesheet" />
+</head>
+<body>
+<div class="wrapper">
+<iframe width="100%" height="100" scrolling="no" class="drone" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/178261963&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>   
+
+  <div class="imagescontainer">
+  </div>
+</div>
+<div class="wrapper2">
+    <h2>Create your own fun mix and share it!</h2>
+    <label for="img1">Image 1:</label>
+    <input type="text" name="img1" size="100" id="img1" value="https://i.imgur.com/Z8mzSGs.jpg"><br />
+    <label for="img2">Image 2:</label>
+    <input type="text" name="img2" size="100" id="img2" value="https://i.imgur.com/m3weaIN.jpg"><br />
+    <label for="speed">Speed:</label>
+
+  <input type="range" id="speed" name="speed" 
+         min="200" max="10000" value="1000" step="100" oninput="$('#speedval').text($(this).val()/1000 + ' seconds');"><div id="speedval"></div>
+ <br />
+    <label for="sub">Text 1:</label>
+    <input type="text" name="sub" size="100" id="sub" value="WORSHIP"> <br />
+    <label for="sub2">Text 2:</label>
+    <input type="text" name="sub2" size="100" id="sub2" value="SCARLETT"> <br />
+    <button class="press">SHARE</button>
+    <div class="form">
+      <input type="url" id="urlinput" placeholder="Put Your Long URL Here" style="display:none;">
+      <input type="text" maxlength=20 id="custominput" placeholder="Custom URL" style="display:none;">
+      <button id="sbtn" type="button" class="btn btn-dark" style="display:none;"> Shorten Me</button>
+    </div>
+    <br>
+    <div class="form" style="margin-bottom : 0px !important;">
+        <input type="text" id="shortenedURL" size="100" placeholder="Your Short Url Shown here" style="display:none;">
+        <p id="sucess" style="color:red"></p>
+    </div>
+    <div class="share"></div>  
+</div>
+<div class="wrapper2">
+<small style="text-align:left;margin:40px auto;display:block;">
+    <a href="http://hypno.is-best.net">http://hypno.is-best.net/</a> is a simple online tool to switch between two images and create fun and hypnotizing effects. You can use it for very naughty brainwashing, but I don't think my hoster likes it when I give you examples ;) <br /><br />
+    If you like this please consider donating so I can pay for hosting: <a href="https://www.paypal.me/hypnofun/5" target="blank">https://www.paypal.me/hypnofun/5</a>
+    <br /><br />
+    Tip1: Use <a href="https://imgur.com" target="_Blank">imgur.com</a> for uploading images like your own photos.<br />
+    Tip2: Use this <a href="https://chrome.google.com/webstore/detail/imgur-uploader/lcpkicdemehhmkjolekhlglljnkggfcf?hl=en" target="_blank">Chrome extension</a> to easily (re-)upload images from the web to imgur.<br />
+    Tip3: Use <a href="https://duckduckgo.com/?q=xxx&t=h_&iar=images&iax=images&ia=images&iaf=type%3Agif" target="_blank">Duckduckgo</a> to search for x-rated pics (turn safesearch off!).<br/>
+    
+
+
+</small>
+</div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148899533-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148899533-1');
+</script>
+
+</body>
+</html>
