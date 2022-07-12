@@ -2,50 +2,163 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <META NAME="ROBOTS" CONTENT="noarchive">
 <meta property="og:title" content="Hypno is best!" />
-<meta property="og:description" content="A simple online tool to switch between two images and create fun and hypnotizing effects. You can use it for very naughty brainwashing, but I don't think my hoster likes it when I give you examples ;)" />
+<meta property="og:description" content="A simple online tool to switch between two or more images and create fun and hypnotizing effects. You can use it for very naughty brainwashing." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://hypno.is-best.net/" />
-<meta property="og:image" content="http://hypno.is-best.net/spiral.jpg" />
-<link rel="icon" href="favicon.ico?v=1" />
-<title>Brainswasher - hypno.is-best.net</title>
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <script defer src="main.js?v=2"></script>
+<title>Brainswasher - hypnofck</title>
+
+  <script defer src="main2022.js?v=1"></script>
 <link href="https://fonts.googleapis.com/css?family=Corben:700&display=swap" rel="stylesheet">
-<link href="main.css?v=2" rel="stylesheet" />
+<link href="main2022.css?v=1" rel="stylesheet" />
 </head>
 <body>
-<div class="wrapper">
-<iframe width="100%" height="100" scrolling="no" class="drone" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/178261963&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>   
 
-  <div class="imagescontainer">
-  </div>
+  
+  
+<div id="mainwrapper">
+    <a href="#" class="fullscreen">fullscreen</a>
+    <div class="balltripper"></div><div class="rainbow"></div>  
+    <div class="wrapper">
+
+        <div class="loading">
+            Large hypnos can take a while to load!<br />
+            Put on your headphones, turn off the lights and breath deep.
+            <div class="progress">0%</div>
+        </div>
+        
+        <div class="strobe"></div>
+
+        <div class="imagescontainer">
+        </div>
+
+    </div>
 </div>
-<div class="wrapper2">
-    <h2>Create your own fun mix and share it!</h2>
-    <label for="img1">Image 1:</label>
-    <input type="text" name="img1" size="100" id="img1" value="https://i.imgur.com/Z8mzSGs.jpg"><br />
-    <label for="img2">Image 2:</label>
-    <input type="text" name="img2" size="100" id="img2" value="https://i.imgur.com/m3weaIN.jpg"><br />
-    <label for="speed">Speed:</label>
+<iframe id="musicframe" width="100%" height="100" scrolling="no" class="drone" frameborder="no" allow="autoplay" src=""></iframe> 
 
-  <input type="range" id="speed" name="speed" 
-         min="200" max="10000" value="1000" step="100" oninput="$('#speedval').text($(this).val()/1000 + ' seconds');"><div id="speedval"></div>
- <br />
-    <label for="sub">Text 1:</label>
-    <input type="text" name="sub" size="100" id="sub" value="WORSHIP"> <br />
-    <label for="sub2">Text 2:</label>
-    <input type="text" name="sub2" size="100" id="sub2" value="SCARLETT"> <br />
+<div class="wrapper2" id="inputwrap">
+    <h2>Create your own fun mix and share it!</h2>
+    <input type="hidden" id="imgcount" value="2" />
+    <input type="hidden" id="subcount" value="1" />
+    <input type="hidden" id="longshare" value="" />
+
+
+    <!-- background select -->
+    <label for="background">Background:</label>
+    <select name="background" id="background">
+    <option value="https://i.imgur.com/UwE6Y2E.gif" selected>Black and white hypno spiral</option>
+    <option value="https://i.imgur.com/0t1svII.gif" >Pillar spiral</option>
+    <option value="https://i.imgur.com/RKJAg54.gif" >Purple blue swerving spiral</option>
+    <option value="https://i.imgur.com/5yyFW2N.gif" >Red black pentagons</option>
+    <option value="https://i.imgur.com/PwyIgTo.gif" >Warpspeed</option>
+    <option value="https://i.imgur.com/omE75VC.gif" >Kaleido-anatomy</option>
+    <option value="https://i.imgur.com/yS27b0H.gif" >Hearts</option>
+    <option value="https://i.imgur.com/A9fle9I.gif" >Rainbow vortex</option>
+    <option value="https://i.imgur.com/tcqq5yi.gif" >Disco flashes</option>
+	<option value="https://i.imgur.com/VuZXkV5.gif" >Infiny squares</option>
+	
+
+    </select><br />
+    <!-- end background select -->
+
+
+    <hr />
+
+    <!-- intensity select -->
+    <label for="intensity">Intensity:</label>
+    <select name="intensity" id="intensity">
+    <option value="1">Normal (spiralling)</option>
+    <option value="2" selected>Mindf*ck me (gets stronger after 1 minute)</option>
+    </select><br />
+    <!-- end intensity select -->
+    <hr />
+
+    <span id="imgswrap">
+        <label for="img1">Image 1:</label>
+        <input type="text" name="img1" size="100" id="img1" class="updatetrigger ut-img" value="https://images2.alphacoders.com/473/473232.jpg"><br />
+        <label for="img2">Image 2:</label>
+        <input type="text" name="img2" size="100" id="img2" class="updatetrigger ut-img" value="https://thumb-p8.xhcdn.com/a/EZp2aisy8-u06e_va3m20w/000/437/153/128_1000.gif"><br />
+    </span>
+ 
+    <a href="#" class="btn btn-small btn-add-image">Add image</a><br />
+    
+    <hr />
+
+    <label for="speed">Image-speed<br /></label>    
+    <small>fast</small>
+    <input type="range" id="speed" name="speed" min="200" max="10000" value="1000" step="100">
+    <small>slow</small><br />
+
+    <hr />
+  	<span id="multitextwrap">
+      <label for="multitext">Comma seperated text (beta):</label>
+      <textarea rows = "8" cols = "60" name="multitext" id="multitext"></textarea>
+    </span>
+    <span id="subswrap">
+        <label for="sub1">Text 1:</label>
+        <input type="text" name="sub1" size="100" id="sub1" class="updatetrigger" value="WORSHIP"><br />
+
+    </span>
+    <a href="#" class="btn btn-small btn-add-sub">Add text</a><br />
+
+    <hr />
+
+    <label for="subspeed">Text-speed<br /></label>    
+    <small>fast</small>
+    <input type="range" id="subspeed" name="subspeed" min="200" max="10000" value="2000" step="100">
+    <small>slow</small><br />    
+
+    <hr />
+
+    <!-- music select -->
+    <label for="music">Music:</label>
+    <select name="music" id="music">
+    <option value="178261963" selected>4Hz Theta waves</option>
+    <option value="197227263">Hypnosis 'obey' male voice</option>
+    <option value="326422846">Didgeredoo</option>
+    <option value="326853286">Soothing</option>
+    <option value="336039094">Girl cumslut</option>    
+    <option value="297558319">Girl degrading herself</option>    
+    <option value="904526887">Girl playing and cumming</option> 
+    <option value="165086684">Girl getting fucked</option>    
+    <option value="141852232">Worship the penis god</option>    
+    <option value="258813256">Satanic mega phallus development</option>
+    <option value="619231395">Bambi named and drained</option>
+    <option value="619231386">Bambi Uniformed</option>
+    <option value="619231380">Bambi Awakens</option>
+    <option value="619231377">Bimbo Slumber</option>
+    <option value="619231350">Bimbo Tranquility</option>
+    <option value="619231347">Bimbo Pride</option>
+    <option value="468562824">Bambi Dumber And Hotter</option>
+    <option value="337364106">Bambi Cockslut</option>
+    <option value="669305534">Sissy swallows</option>
+    <option value="667903664">I'm a pleasure puppet</option>
+    <option value="604828332">HypnoSlut - Gym Bunny</option>   
+    <option value="490556931">Blowjob puppet</option>    
+    <option value="1113962707">White boi Black cock</option>    
+    <option value="133923300">Romantic guiter music</option>    
+    <option value="190490447">Love me like you do</option>    
+
+    
+
+    <option value="0">Silent</option>
+    </select><br />
+    <!-- end music select -->
+
+    <hr />
+
+
+
     <button class="press">SHARE</button>
     <div class="form">
-      <input type="url" id="urlinput" placeholder="Put Your Long URL Here" style="display:none;">
+      <input type="url" id="urlinput" size="100" placeholder="URL for bookmarking" style="display:none;">
       <input type="text" maxlength=20 id="custominput" placeholder="Custom URL" style="display:none;">
       <button id="sbtn" type="button" class="btn btn-dark" style="display:none;"> Shorten Me</button>
     </div>
@@ -58,26 +171,16 @@
 </div>
 <div class="wrapper2">
 <small style="text-align:left;margin:40px auto;display:block;">
-    <a href="http://hypno.is-best.net">http://hypno.is-best.net/</a> is a simple online tool to switch between two images and create fun and hypnotizing effects. You can use it for very naughty brainwashing, but I don't think my hoster likes it when I give you examples ;) <br /><br />
-    If you like this please consider donating so I can pay for hosting: <a href="https://www.paypal.me/hypnofun/5" target="blank">https://www.paypal.me/hypnofun/5</a>
     <br /><br />
     Tip1: Use <a href="https://imgur.com" target="_Blank">imgur.com</a> for uploading images like your own photos.<br />
     Tip2: Use this <a href="https://chrome.google.com/webstore/detail/imgur-uploader/lcpkicdemehhmkjolekhlglljnkggfcf?hl=en" target="_blank">Chrome extension</a> to easily (re-)upload images from the web to imgur.<br />
     Tip3: Use <a href="https://duckduckgo.com/?q=xxx&t=h_&iar=images&iax=images&ia=images&iaf=type%3Agif" target="_blank">Duckduckgo</a> to search for x-rated pics (turn safesearch off!).<br/>
-    
-
+    Tip4: Make sure the url you paste has an extension like .jpg .gif .mp4 or .webm!<br/>
 
 </small>
 </div>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148899533-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-148899533-1');
-</script>
+
 
 </body>
 </html>
