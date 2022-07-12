@@ -1,131 +1,160 @@
-  html{
-    font-family: 'Corben', cursive;
-    font-weight:normal;
-  }
-  body{
-      background-color:#ff68d4;
-      color:rgba(0,0,0,0.7);
-      box-sizing:content-box;
-      padding:0;
-      margin:0;
-  }
+html{
+font-family: 'Corben', cursive;
+font-weight:normal;
+}
+body{
+    background-color:#ff68d4;
+    color:rgba(0,0,0,0.7);
+    box-sizing:content-box;
+    padding:0;
+    margin:0;
+}
+hr{
+    width:100%;
+    height:1px;
+    border:none;
+    background-color: rgba(0,0,0,.1);
+}
+#mainwrapper{
+    position: relative;
+    overflow: hidden;
 
-  .wrapper{
-      background-image:url(https://i.imgur.com/UwE6Y2E.gif);
-      background-size:cover;
-      height:100vh;
-      background-position:center center;
-      position:relative;
-      text-align:center;
-      overflow:hidden;  
-        display: flex;
-        align-items: center; 
-        justify-content: center;      
-  }
-  .imagescontainer{
+}
+#multitext{
+  max-width:100%;
+}
+.wrapper{
+    background-image:url(https://i.imgur.com/UwE6Y2E.gif);
+    background-size:cover;
+    height:100vh;
+    background-position:center center;
+    position:relative;
+    text-align:center;
+    overflow:hidden;  
+    display: flex;
+    align-items: center; 
+    justify-content: center;      
+}
+.imagescontainer{
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;      
-    width:90vh;
+    width:90vw;
     height:90vh;
     position:relative;
     z-index:1;
     margin:0 auto;
     text-align:center;
     padding:0;
-    -webkit-box-shadow: 0px 26px 63px -15px rgba(0,0,0,0.98);
-    -moz-box-shadow: 0px 26px 63px -15px rgba(0,0,0,0.98);
-    box-shadow: 0px 26px 63px -15px rgba(0,0,0,0.98);
     top:0;
     overflow:hidden;
     display: flex;
     align-items: center; 
+    justify-content: center;   
+    animation: heartbeat 1s infinite;  
+}
+.babecock .imagescontainer{
+    animation: none;
+    transform: scaleY(0.5);
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;        
+}
+.babecock .imagescontainer .flickr:nth-child(odd){
+    transform: scaleX(0.5) translateX(-50%);
+}
+.babecock .imagescontainer .flickr:nth-child(even){
+    transform: scaleX(0.5) translateX(50%);
+}
+.babecock .flickr{
+
+
+
+}
+.flickr{
+    position:absolute;
+    top:0;
+    z-index:102;
+    margin:0;
+    width:100%;
+    height:100%;
+    background-size:contain;
+    background-position:center center;
+    opacity:0;
+    -webkit-transform: scale(1);    
+    transform: scale(1);    
+}
+.flickr.active{
+    opacity:0.9;
+    -webkit-transform: scale(1.2);    
+    transform: scale(1.2);
+}
+.strobe{
+    background: url(https://i.imgur.com/mTgdZlM.gif) no-repeat center;
+    animation: strobing 120s forwards;
+    z-index: 400;          
+    background-size: cover;
+    height: 100vh;
+    background-position: center center;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    animation: heartbeat 2s infinite; 
-  }
+    width: 100vw;        
+}
+.balltripper{
+    opacity: 0;
+    background: url(https://i.imgur.com/qrc3Ty6.gif) no-repeat center;
+    animation: intensify 60s forwards;
+    animation-delay: 60s;
+    z-index: 1;
+    background-size: cover;
+    height: 100vh;
+    background-position: center center;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    }
+    
+.rainbow{
+    opacity: 0;
+    background: url(https://i.imgur.com/0xWQDzE.gif) no-repeat center;
+    animation: intensify 60s forwards;
+    animation-delay: 120s;
+    z-index: 1;
+    background-size: cover;
+    height: 100vh;
+    background-position: center center;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;       
+}
+/*only spiralling */  
+.int-easy .strobe{display: none;}
+.int-easy .balltripper{display: none;}
+.int-easy .rainbow{display: none;}
+/*only spiralling */  
 
-  .flickr,.flickr2{
-      position:absolute;
-      top:0;
-      z-index:102;
-      margin:0;
-      width:100%;
-      height:100%;
-      background-size:cover;
-      animation: blinking 300ms infinite;
-      background-color:#000;
-      background-position:center center;
-      opacity:0;
-  }
-  .flickr2{
-      z-index:103;
-      margin:0;
-      animation: blinking 300ms infinite;
-      background-color:#000;
-  }  
-       @keyframes blinking { /*image*/
-        0%{
-          opacity: 0.1;
-          transform: scale(1);
-        }
-        50%{
-          opacity: 1;
-        }
-        100%{
-          opacity: 0.1;
-          transform: scale(1.2);
-        }
-      }
-       @keyframes zoom { /*text*/
-        0%{
-          transform: scale(0.4);
-          opacity:0;
-        }
-        20%{
-          transform: scale(0.8);
-          opacity: 0.85;
+/*mobile no flickering*/
+@media only screen and (max-width: 768px) {
+    .strobe{        
+        display:none;
+    }
+}
+/*mobile no flickering*/
 
-        }
-        30%{
-          transform: scale(1);
-          opacity: 0;
-
-        }
-        100%{
-          transform: scale(1.5);
-          opacity: 0;
-
-        }
-      }   
-    @keyframes heartbeat
-    {
-    0%
-    {
-        transform: scale( 1 );
-    }
-    5%
-    {
-        transform: scale( 1.05 );
-    }
-    50%
-    {
-        transform: scale( 1 );
-    }
-    55%
-    {
-        transform: scale( 1.05 );
-    }
-    90%
-    {
-        transform: scale( 1 );
-    }
-    100%
-    {
-        transform: scale( 1 );
-    }
-    }       
-
-  .subtitle,.subtitle2{
+    
+.subtitle{
     position:absolute;
     text-align:center;
     width:100%;
@@ -136,49 +165,48 @@
     display:block;
     opacity:0;
     line-height:1;
-  }
-    @media only screen and (max-width: 768px) {
-        .subtitle,.subtitle2{        
-            font-size:40px;
-        }
-    }
-  .subtitle{
-      animation: zoom 6000ms infinite;   
-  }
-  .subtitle2{
-      animation: zoom 6000ms infinite;
-      animation-delay: 2000ms;
-  }
-  .share{
-    display:block;
-  }
+  text-transform:uppercase;
+}
 
-  .wrapper2{
-      padding:20px 30px;
-      margin:20px auto;
+@media only screen and (max-width: 768px) {
+    .subtitle{        
+        font-size:30px;
+    }
+}
+
+.share{
+    display:block;
+}
+
+.wrapper2{
+    padding:20px 30px;
+    margin:20px auto;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-      background-color:#FFF;
+        background-color:#e8e8e8;
     -webkit-box-shadow: 0px 26px 63px -15px rgba(0,0,0,0.88);
     -moz-box-shadow: 0px 26px 63px -15px rgba(0,0,0,0.88);
     box-shadow: 0px 26px 63px -15px rgba(0,0,0,0.88);
     width:500px;      
     max-width:80%;
-  }
-  .wrapper2 input{
-          max-width:100%;
-          padding:5px;
-          margin-bottom:5px;
-  }
-  .drone{
-      position:absolute;
-      right:5px;
-      bottom:5px;
-      width:100px;
-      z-index:300;
-  }
-button{
+}
+.wrapper2 input{
+        max-width:100%;
+        padding:5px;
+        margin-bottom:5px;
+}
+select{
+        max-width:100%;
+        padding:5px;
+        margin-bottom:5px;
+}   
+.drone{
+    display: block;
+    width:100%;
+    z-index:500;
+}
+button, .btn{
     background-color:#ff59b5;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
@@ -199,7 +227,8 @@ button{
     overflow: hidden;
     -webkit-box-shadow: 0 5px 5px rgba(55,55,55, 0.15);
     -moz-box-shadow: 0 5px 5px rgba(55,55,55, 0.15);
-    box-shadow: 0 5px 5px rgba(55,55,55, 0.15);    
+    box-shadow: 0 5px 5px rgba(55,55,55, 0.15);  
+    cursor: pointer;  
 }  
 button:hover{
     top:-1px;
@@ -207,10 +236,130 @@ button:hover{
     -moz-box-shadow: 0 5px 5px rgba(55,55,55, 0.35);
     box-shadow: 0 5px 5px rgba(55,55,55, 0.35);     
 }
+.btn-small{
+      padding: 9px 20px;  
+       font-size: 14px;
+}
 h2{
     color:#ff59b5;
     font-size:normal;
 }
 #speedval{
     display:inline-block;
+}
+.video{
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%; 
+    min-height: 100%; 
+    width: auto; 
+    height: auto;
+    z-index: -1000; 
+    overflow: hidden;  
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;      
+}
+
+
+@keyframes immerse {
+    0% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+    100% {
+        transform: scale(2.0);
+        -webkit-transform: scale(2.0);
+    }
+}
+
+@keyframes strobing{
+    0%{opacity:0;}
+    30%{opacity:0;}
+    70%{opacity:1;}
+    80%{opacity:1;}
+    81%{opacity:0.5;}
+    90%{opacity:1;}
+    91%{opacity:0.5;}
+    95%{opacity:1;}
+    96%{opacity:0.5;}                      
+    100%{opacity:1;}
+}
+@keyframes intensify{
+    0%{opacity:0;}
+    5%{opacity:0.3;}
+    100%{opacity:0.6;}
+}    
+@keyframes heartbeat
+{
+0%
+{
+    transform: scale( 1 );
+}
+3%
+{
+    transform: scale( 1.02 );
+}
+30%
+{
+    transform: scale( 1 );
+}
+33%
+{
+    transform: scale( 1.02 );
+}
+90%
+{
+    transform: scale( 1 );
+}
+100%
+{
+    transform: scale( 1 );
+}
+}
+
+.loading {
+    
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%); 
+  text-align: center;
+  font-size: 18px;
+  color:#fff;
+  z-index: 99999;
+  padding-top: 20px;
+}
+.progress { 
+      font-size: 28px;
+    margin-top: 300px; 
+}
+@media only screen and (max-width: 768px) {
+    .loading{        
+        font-size: 14px;
+    }
+    .progress { 
+      font-size: 18px;
+      margin-top: 300px; 
+    }    
+}
+.fullscreen{
+    position: absolute;
+    top:0;
+    right:0;
+    width:30px;
+    height:30px;
+    text-indent: -9999px;
+    background: url(fullscreen.png) no-repeat center center;
+    background-size: contain;
+    z-index: 9999;
+}
+.fullscreen.full{
+    background: url(exitfullscreen.png) no-repeat center center;
+    background-size: contain;
 }
